@@ -1,118 +1,132 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>The Website All About Me!</title>
-        <style>
-            body {
-                background: rgb(219, 71, 17);
-                color: rgb(45, 45, 45);
-                padding: 10px;
-                font-family: arial;
-            }
-            #all-contents {
-              max-width: 800px;
-                margin: auto;
-            }
-         
-            /* navigation menu */
-            nav {
-                border-radius: 40px 40px 40px 40px;
-                background: rgb(77, 41, 239);
-               margin: 0 auto;
-               margin-bottom: 20px;
-                display: flex;
-                padding: 10px;
-            }
-            h1 {
-                display: flex;
-                align-items: center;
-                color: white;
-                flex: 1;
-                margin: 0;
-            }
-            #nav-ul {
-                list-style-image: none;
-            }
-            .nav-li {
-                display: inline-block;
-                padding: 0 10px;
-            }
-            a {
-                text-decoration: none;
-                color: #fff;
-            }
-         
-            /* main container area beneath menu */
-            main {
-                background: rgb(255, 255, 255);
-                display: flex;
-                border-radius: 40px;
-            }
-            .sidebar {
-                margin-right: 25px;
-                padding: 10px;
-            }
-            .sidebar-img {
-                width: 200px;
-                border-radius: 10px;
-            }
-            .content {
-                flex: 1;
-                padding: 15px;
-            }
-            #interests {
-                border-radius: 20px 20px 20px 20px;
-                background-color: rgb(0, 255, 42);
-                border: 4px rgb(0, 255, 183) ridge;
-                padding: 8px;
-            }
-            h2, h3 {
-                margin: 0px;
-            }
-         </style>
-    </head>
     
-    <body>
-        <!-- Visible HTML elements GO HERE  -->
-        <div id="all-contents">
-            <nav>
-                <h1>
-                    The Website All About Me
-                </h1>
-                <li class="nav-li"><a href="index.html">Home</a></li>
-                <li class="nav-li"><a href="portfolio.html">Portfolio</a></li>
-            </nav>
+<head>
+    <title>The Website All About Me!</title>
+    <style>
+        body {
+            background: rgb(219, 71, 17);
+            color: rgb(45, 45, 45);
+            padding: 10px;
+            font-family: arial;
+        }
 
-            <main>
-                <!-- Sidebar section -->
+        #all-contents {
+            max-width: 800px;
+            margin: auto;
+        }
 
-                <div class="sidebar">
-                    <img class="sidebar-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjQ_0TPWWsJTpexMjmYav94VmEYW09hQVHYdX-dDZr8Q&s">
+        /* navigation menu */
+        nav {
+            border-radius: 40px 40px 40px 40px;
+            background: rgb(77, 41, 239);
+            margin: 0 auto;
+            margin-bottom: 20px;
+            display: flex;
+            padding: 10px;
+        }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            color: white;
+            flex: 1;
+            margin: 0;
+        }
+
+        #nav-ul {
+            list-style-image: none;
+        }
+
+        .nav-li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* main container area beneath menu */
+        main {
+            background: rgb(255, 255, 255);
+            display: flex;
+            border-radius: 40px;
+        }
+
+        .sidebar {
+            margin-right: 25px;
+            padding: 10px;
+        }
+
+        .sidebar-img {
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 15px;
+        }
+
+        #interests {
+            border-radius: 20px 20px 20px 20px;
+            background-color: rgb(0, 255, 42);
+            border: 4px rgb(0, 255, 183) ridge;
+            padding: 8px;
+        }
+
+        h2,
+        h3 {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Visible HTML elements GO HERE  -->
+    <div id="all-contents">
+        <nav>
+            <h1>
+                The Website All About Me
+            </h1>
+            <li class="nav-li"><a href="index.html">Home</a></li>
+            <li class="nav-li"><a href="portfolio.html">Portfolio</a></li>
+        </nav>
+
+        <main>
+            <!-- Sidebar section -->
+
+            <div class="sidebar">
+                <img class="sidebar-img"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjQ_0TPWWsJTpexMjmYav94VmEYW09hQVHYdX-dDZr8Q&s">
+            </div>
+
+            <!-- Content section -->
+
+            <div class="content">
+                <h2>
+                    Jonathan Lannes
+                </h2>
+                <p>
+                    I am a student at Hahnville High School
+                </p>
+                <!-- Interests section -->
+                <div id="interests">
+                    <h3>
+                        Interests
+                    </h3>
+                    <ul>
+                        <li> Gaming</li>
+                        <li>Anime</li>
+                        <li> Technology</li>
+                    </ul>
                 </div>
+            </div>
+        </main>
 
-                <!-- Content section -->
+    </div>
+</body>
 
-                <div class="content">
-                    <h2>
-                        Jonathan Lannes
-                    </h2>
-                    <p>
-                        I am a student at Hahnville High School
-                    </p>
-                    <!-- Interests section -->
-                    <div id="interests">
-                        <h3>
-                            Interests
-                        </h3>
-                        <ul>
-                            <li> Gaming</li>
-                            <li>Anime</li>
-                            <li> Technology</li>
-                        </ul>
-                    </div>
-                </div>
-            </main>
-            
-        </div>
-    </body>
 </html>
