@@ -42,9 +42,9 @@
     createCollectable(type.db, 150, 500, 6, 0.7);
     createCollectable(type.steve, 235, 600, 6, 0.7);
     createCollectable(type.kennedi, 825, 90, 6, 0.7);
-    createCollectable(type.grace, 150, -10, 6, 0.7);
+    createCollectable(type.grace, 350, -10, 6, 0.7);
     createCollectable(type.max, 825, 600, 6, 0.7);
-    createCollectable(type.kennedi, 50, 390, 6, 0.7);
+    createCollectable(type.kennedi, 750, 390, 6, 0.7);
     createCollectable(type.db, 550, 400, 6, 0.7);
     createCollectable(type.db, 450, 400, 6, 0.7);
     createCollectable(type.db, 350, 400, 6, 0.7);
