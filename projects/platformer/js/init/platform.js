@@ -35,10 +35,33 @@
      * bottom of the game.
      */
     createPlatform(0, game.world.height - 32, 3, 2); // DO NOT DELETE
+    //Notes- bottom is y-670, player can jump y-80, x-250 
 
     // example:
-    createPlatform(400, 250);
-    createPlatform(170, 460, 0.5);
+
+    //Ground
+
+    createPlatform(0, 550, 3)
+    createPlatform(0, 450, 3)
+    createPlatform(0, 350, 3)
+    createPlatform(0, 250, 3)
+    createPlatform(0, 150, 3)
+    createPlatform(0, 50, 3)
+
+    //Walls
+
+    createPlatform(875, 0, 0.1, 30)
+    createPlatform(800, 0, 0.1, 30)
+    createPlatform(700, 0, 0.1, 30)
+    createPlatform(600, 0, 0.1, 30)
+    createPlatform(500, 0, 0.1, 30)
+    createPlatform(400, 0, 0.1, 30)
+    createPlatform(300, 0, 0.1, 30)
+    createPlatform(200, 0, 0.1, 30)
+    createPlatform(100, 0, 0.1, 30)
+    createPlatform(0, 0, 0.1, 30)
+    //Stopping the player from going to the bottom of the screen
+    createPlatform(0, 660, 3, 1.5)
 
     // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
