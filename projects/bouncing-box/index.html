@@ -76,11 +76,22 @@
 			var threeClicks = 0;
 			var speedIncrease = 0;
 			var backClick = 0;
+			var colorStr = "rgb(0, 0, 0)";
+			var oneToTen1 = Math.random() * 255;
+			var oneToTen2 = Math.random() * 255;
+			var oneToTen3 = Math.random() * 255;
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
+			function getRandomColor () {
+				oneToTen1 = Math.random() * 255;
+				oneToTen2 = Math.random() * 255;
+				oneToTen3 = Math.random() * 255;
+				colorStr = "rgb(" + oneToTen1 + ", " + oneToTen2 + ", " + oneToTen3 + ")";
+				box.css('color', colorStr);
+			}
 			function update() {
 				/* Your Code to Increase positionX by 10 HERE*/
 				positionX = positionX + speed
@@ -125,9 +136,12 @@
 				} else {
 					speedY = speedY - 3 + speedIncrease*-1;
 				}
+				backClick = backClick - 1
 				randNumX = Math.random() * boardWidth;
 				randNumY = Math.random() * boardHeight;
 				threeClicks = threeClicks + 1;
+				getRandomColor();
+				
 			};
 			function handleBoardClick() {
 				backClick = backClick + 1;
