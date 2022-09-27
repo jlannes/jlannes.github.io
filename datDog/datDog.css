@@ -25,13 +25,14 @@ a:active {
     font-family:'Courier New', Courier, monospace;
 }
 #datTitle {
-    font-family:cursive
+    font-family:cursive;
+    font-size: 50px
 }
 #logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: 300px;
 }
 
 .table {
