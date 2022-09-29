@@ -43,6 +43,11 @@ a:active {
     width: 400px;
 }
 
-.blankBox {
-    color: rgb(0, 208, 255);
+.gap {
+    padding-right: 30px ;
+}
+
+.gapImage {
+    padding-left: 30px ;
+    padding-right: 10px ;
 }
