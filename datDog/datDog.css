@@ -7,19 +7,21 @@ body {
 }
 #maincontent {
     background-color: rgb(116, 229, 255);
-    border-style: rgb(0, 181, 222);
+    border-style: solid;
+    border-color: rgb(0, 181, 222);
 }
 a:link {
-    color: rgb(0, 112, 137)
+    color: rgb(0, 112, 137);
+    text-decoration: none;
 }
 a:visited {
-    color: rgb(67, 0, 190)
+    color: rgb(67, 0, 190);
 }
 a:hover {
-    color: rgb(0, 152, 187)
+    color: rgb(0, 152, 187);
 }
 a:active {
-    color: rgb(0, 0, 0)
+    color: rgb(0, 0, 0);
 }
 .datDog {
     font-family:'Courier New', Courier, monospace;
@@ -36,11 +38,11 @@ a:active {
 }
 
 .table {
-    max-width: 1px ;
+    max-width: 1250px;
     display: block;
-    margin-left: 150px;
+    margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: 1250px;
 }
 
 .gap {
