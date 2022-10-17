@@ -110,6 +110,7 @@
 				if (threeClicks >= 3) {
 					threeClicks = 0
 					speedIncrease = speedIncrease + 1
+					getRandomColor();
 				}
 				if (backClick >= 10) {
 					endGame();
@@ -140,7 +141,7 @@
 				randNumX = Math.random() * boardWidth;
 				randNumY = Math.random() * boardHeight;
 				threeClicks = threeClicks + 1;
-				getRandomColor();
+
 				
 			};
 			function handleBoardClick() {
