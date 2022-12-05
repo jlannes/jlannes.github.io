@@ -5,7 +5,7 @@
     var draw = window.opspark.draw;
     var createjs = window.createjs;
 
-    window.opspark.createGameManager = function(app,hud) {
+    window.opspark.createGameManager = function (app, hud) {
         var score = 0;
         var health = 100;
         var view = app.view;
@@ -18,7 +18,7 @@
         function increaseScore(amount) {
             score += amount;
             hud.updateScore(amount);
-            console.log("setting score = ",score);
+            console.log("setting score = ", score);
         }
 
         function getScore() {
@@ -28,7 +28,7 @@
         // XXX: this is a glorious hack in order to get halle because
         // we forgot to pass it in originally
         function getHalle() {
-            var halleObj = view.children.filter(function(c) { return !!c.jumpfly; });
+            var halleObj = view.children.filter(function (c) { return !!c.jumpfly; });
             return halleObj.length > 0 ? halleObj[0] : null;
         }
 
@@ -39,16 +39,16 @@
          */
         function changeIntegrity(amount) {
             health = Math.min(health + amount, 100);
-            console.log("setting integrity = ",health);
+            console.log("setting integrity = ", health);
             hud.setIntegrity(health);
-            if(health <= 0) {
+            if (health <= 0) {
                 hud.kill();
                 halle = getHalle();
-                if(halle) {
+                if (halle) {
                     // prevent replay of die animation - gameover is fired once animation is complete
                     // this still does not prevent collisions from being reported
                     // but no easy way to handle this without touching a bunch of code in other places
-                    halle.addEventListener("gameover", function() {
+                    halle.addEventListener("gameover", function () {
                         view.removeChild(halle);
                     });
                     halle.die();
@@ -57,8 +57,8 @@
         }
 
         hud.setIntegrity(100);
-        hud.updateOf(10000);
-        
+        hud.updateOf(4100);
+
         /* Create a new game item of the given type and hit radius. Each game
            item is a empty createjs container. To draw something for a game item
            create shapes and/or bitmaps and add them to container via addChild()
@@ -92,42 +92,42 @@
 
            See documentation on these methods
          */
-        function createGameItem(type,radius) {
-            var body = _.extend(new createjs.Container(),physikz.makeBody(type));
+        function createGameItem(type, radius) {
+            var body = _.extend(new createjs.Container(), physikz.makeBody(type));
             body.radius = radius;
 
-            body.handleCollision =  function (impact, otherBody) {
-                if(body.collided) {
+            body.handleCollision = function (impact, otherBody) {
+                if (body.collided) {
                     return;
                 }
                 body.collided = true;
-                if(otherBody.type == 'hitzone') {
-                    body.onPlayerCollision(body);    
+                if (otherBody.type == 'hitzone') {
+                    body.onPlayerCollision(body);
                 }
-                else if(otherBody.type == 'projectile') {
-                    body.onProjectileCollision(body);    
+                else if (otherBody.type == 'projectile') {
+                    body.onProjectileCollision(body);
                 }
             }
 
             /* Called when this game item is hit by one of halles projectiles
                for the first time 
              */
-            body.onProjectileCollision = function(self) {
+            body.onProjectileCollision = function (self) {
 
             }
 
             /* Called when this game item hits the Halle the first time */
-            body.onPlayerCollision = function(self) {
+            body.onPlayerCollision = function (self) {
 
             }
 
             /* animate this game item out of the game by fading out 
                duration is in milliseconds 
             */
-            body.fadeOut = function(duration) {
+            body.fadeOut = function (duration) {
                 duration = duration || 100;
                 removeFromSpace(body);
-                createjs.Tween.get(body).to({alpha: 0}, duration).call(function() {
+                createjs.Tween.get(body).to({ alpha: 0 }, duration).call(function () {
                     removeGameItem(body);
                 });
             }
@@ -135,12 +135,12 @@
             /* animate this game item out of the game by shrinking it to nothing
                duration is in milliseconds 
             */
-            body.shrink = function(duration) {
+            body.shrink = function (duration) {
                 duration = duration || 100;
                 removeFromSpace(body);
-                createjs.Tween.get(body).to({scaleX: 0, scaleY: 0}, duration).call(function() {
+                createjs.Tween.get(body).to({ scaleX: 0, scaleY: 0 }, duration).call(function () {
                     removeGameItem(body);
-                }); 
+                });
             }
 
             /* animate this game item out of the game by moving it to a particular
@@ -148,12 +148,12 @@
                x and y should be offscreen
                duration is in milliseconds 
             */
-            body.flyTo = function(x,y,duration) {
+            body.flyTo = function (x, y, duration) {
                 duration = duration || 100;
                 removeFromSpace(body);
-                createjs.Tween.get(body).to({x:x,y:y}, duration).call(function() {
+                createjs.Tween.get(body).to({ x: x, y: y }, duration).call(function () {
                     removeGameItem(body);
-                }); 
+                });
             }
             return body;
         }
@@ -162,8 +162,8 @@
             
          */
         function addGameItem(gameItem) {
-            if(debugMode) {
-                var hitCircle = draw.circle(gameItem.radius,'rgba(0, 0, 0, .3)');
+            if (debugMode) {
+                var hitCircle = draw.circle(gameItem.radius, 'rgba(0, 0, 0, .3)');
                 gameItem.addChild(hitCircle);
             }
             view.addChild(gameItem);
@@ -172,8 +172,8 @@
 
         function removeFromSpace(gameItem) {
             var ix = space.indexOf(gameItem);
-            if(ix != -1) {
-                space.splice(ix,1);
+            if (ix != -1) {
+                space.splice(ix, 1);
             }
         }
 
@@ -182,8 +182,8 @@
         */
         function removeGameItem(gameItem) {
             var ix = space.indexOf(gameItem);
-            if(ix != -1)  {
-                space.splice(ix,1);
+            if (ix != -1) {
+                space.splice(ix, 1);
             }
             view.removeChild(gameItem);
         }
@@ -194,11 +194,11 @@
            - cannot be destroyed 
            - does a specified amount damage when colliding with player
          */
-        function createObstacle(radius,damage) {
-            var gameItem = createGameItem('obstacle',radius);
+        function createObstacle(radius, damage) {
+            var gameItem = createGameItem('obstacle', radius);
             gameItem.velocityX = -2;
 
-            gameItem.onPlayerCollision = function() {
+            gameItem.onPlayerCollision = function () {
                 changeIntegrity(-damage);
             };
             return gameItem;
@@ -216,10 +216,10 @@
            levelData
          */
         function playLevel(levelData) {
-            if(gameItemFactory == null) {
+            if (gameItemFactory == null) {
                 throw new Error("No gameItemFactory set");
             }
-            var items = levelData.gameItems.map(function(gameItem) {
+            var items = levelData.gameItems.map(function (gameItem) {
                 return {
                     created: false,
                     gameItem: gameItem
@@ -228,33 +228,35 @@
             var levelLength = levelData.totalLength || 0;
             var frameNo = 0;
 
-            app.addUpdateable({update: function() {
-                
-                // lazily instantiate items just before the come onto the screen
-                // to improve performance
-                frameNo += 1;
-                var displacement = -levelData.speed*frameNo;
-                items.forEach(function(item) {
-                    if(!item.created) {
-                        var x1 = item.gameItem.x + displacement;
-                        if(x1 < app.canvas.width+100) {
-                            item.created = true;
-                            var newGameItem = _.clone(item.gameItem);
-                            newGameItem.x = x1;
-                            gameItemFactory(newGameItem);
-                        }
-                    }
-                });
+            app.addUpdateable({
+                update: function () {
 
-                // remove objects that have been moved offscreen
-                var offscreenLeft = view.children.filter(function(obj) {
-                    return obj.x && obj.x < -100 && space.indexOf(obj) != -1;
-                });
-                offscreenLeft.forEach(function(item) {
-                    // console.log("removed offscreen item",item)
-                    removeGameItem(item);
-                });
-            }});
+                    // lazily instantiate items just before the come onto the screen
+                    // to improve performance
+                    frameNo += 1;
+                    var displacement = -levelData.speed * frameNo;
+                    items.forEach(function (item) {
+                        if (!item.created) {
+                            var x1 = item.gameItem.x + displacement;
+                            if (x1 < app.canvas.width + 100) {
+                                item.created = true;
+                                var newGameItem = _.clone(item.gameItem);
+                                newGameItem.x = x1;
+                                gameItemFactory(newGameItem);
+                            }
+                        }
+                    });
+
+                    // remove objects that have been moved offscreen
+                    var offscreenLeft = view.children.filter(function (obj) {
+                        return obj.x && obj.x < -100 && space.indexOf(obj) != -1;
+                    });
+                    offscreenLeft.forEach(function (item) {
+                        // console.log("removed offscreen item",item)
+                        removeGameItem(item);
+                    });
+                }
+            });
         }
 
 
@@ -277,7 +279,7 @@
             createObstacle: createObstacle,
             setGameItemFactory: setGameItemFactory,
             playLevel: playLevel,
-            setDebugMode : setDebugMode,
+            setDebugMode: setDebugMode,
             ground: app.ground,
             groundY: app.ground.y
         }

@@ -1,9 +1,9 @@
 (function (window) {
     window.opspark = window.opspark || {};
-    
+
     window.opspark.makePacifier = function (target, options) {
         options = (options ? options : {
-              lines: 13 // The number of lines to draw
+            lines: 13 // The number of lines to draw
             , length: 28 // The length of each line
             , width: 14 // The line thickness
             , radius: 42 // The radius of the inner circle
