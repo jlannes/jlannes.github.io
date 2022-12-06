@@ -108,9 +108,11 @@ var level01 = function (window) {
                 { "type": "cube", "x": 3900, "y": groundY - 50 },
             ]
         };
-        for (var things in levelData.gameItems) {
-            
-            things++
+        for (var i = 0; i < levelData.gameItems.length; i++) {
+            var eachElement = levelData.gameItems[i];
+            if (levelData.gameItems[eachElement]["type"] === "sawblade") {
+                createSawBlade(levelData.gameItems[eachElement]["x"], levelData.gameItems[eachElement]["y"])
+            }
         }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
