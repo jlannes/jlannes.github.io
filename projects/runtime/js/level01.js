@@ -16,102 +16,37 @@ var level01 = function (window) {
             "number": 1,
             "speed": -3,
             "gameItems": [
-                { "type": "laser", "x": 300, "y": 300 },
-                { "type": "sawblade", "x": 400, "y": 250 },
-                { "type": "sawblade", "x": 400, "y": 300 },
-                { "type": "sawblade", "x": 400, "y": 350 },
-                { "type": "cube", "x": 500, "y": groundY - 50 },
-                { "type": "coin", "x": 500, "y": groundY - 50 },
-                { "type": "sawblade", "x": 600, "y": 250 },
-                { "type": "sawblade", "x": 600, "y": 300 },
+                { "type": "laser", "x": 2000, "y": 235 },
+                { "type": "sawblade", "x": 400, "y": 254 },
+                { "type": "sawblade", "x": 400, "y": 119 },
+                { "type": "sawblade", "x": 600, "y": 202 },
                 { "type": "sawblade", "x": 600, "y": 350 },
-                { "type": "cube", "x": 700, "y": groundY - 50 },
-                { "type": "sawblade", "x": 800, "y": 250 },
-                { "type": "sawblade", "x": 800, "y": 300 },
-                { "type": "sawblade", "x": 800, "y": 350 },
-                { "type": "cube", "x": 900, "y": groundY - 50 },
-                { "type": "sawblade", "x": 1000, "y": 250 },
-                { "type": "sawblade", "x": 1000, "y": 300 },
-                { "type": "sawblade", "x": 1000, "y": 350 },
-                { "type": "cube", "x": 1100, "y": groundY - 50 },
-                { "type": "sawblade", "x": 1200, "y": 250 },
-                { "type": "sawblade", "x": 1200, "y": 300 },
-                { "type": "sawblade", "x": 1200, "y": 350 },
-                { "type": "cube", "x": 1300, "y": groundY - 50 },
-                { "type": "coin", "x": 1300, "y": groundY - 50 },
-                { "type": "sawblade", "x": 1400, "y": 250 },
-                { "type": "sawblade", "x": 1400, "y": 300 },
-                { "type": "sawblade", "x": 1400, "y": 350 },
-                { "type": "cube", "x": 1500, "y": groundY - 50 },
-                { "type": "sawblade", "x": 1600, "y": 250 },
-                { "type": "sawblade", "x": 1600, "y": 300 },
-                { "type": "sawblade", "x": 1600, "y": 350 },
-                { "type": "cube", "x": 1700, "y": groundY - 50 },
-                { "type": "sawblade", "x": 1800, "y": 250 },
-                { "type": "sawblade", "x": 1800, "y": 300 },
-                { "type": "sawblade", "x": 1800, "y": 350 },
+                { "type": "sawblade", "x": 800, "y": 267 },
+                { "type": "sawblade", "x": 800, "y": 126 },
+                { "type": "sawblade", "x": 1300, "y": 254 },
+                { "type": "sawblade", "x": 1300, "y": 119 },
+                { "type": "sawblade", "x": 1500, "y": 202 },
+                { "type": "sawblade", "x": 1500, "y": 350 },
+                { "type": "sawblade", "x": 1100, "y": 267 },
+                { "type": "sawblade", "x": 1100, "y": 126 },
+                { "type": "sawblade", "x": 1700, "y": 250 },
                 { "type": "cube", "x": 1900, "y": groundY - 50 },
-                { "type": "sawblade", "x": 2000, "y": 250 },
-                { "type": "sawblade", "x": 2000, "y": 300 },
-                { "type": "sawblade", "x": 2000, "y": 350 },
-                { "type": "cube", "x": 2100, "y": groundY - 50 },
-                { "type": "coin", "x": 2100, "y": groundY - 50 },
-                { "type": "sawblade", "x": 2200, "y": 250 },
-                { "type": "sawblade", "x": 2200, "y": 300 },
-                { "type": "sawblade", "x": 2200, "y": 350 },
-                { "type": "cube", "x": 2300, "y": groundY - 50 },
-                { "type": "sawblade", "x": 2400, "y": 250 },
-                { "type": "sawblade", "x": 2400, "y": 300 },
-                { "type": "sawblade", "x": 2400, "y": 350 },
-                { "type": "cube", "x": 2500, "y": groundY - 50 },
-                { "type": "sawblade", "x": 2600, "y": 250 },
-                { "type": "sawblade", "x": 2600, "y": 300 },
-                { "type": "sawblade", "x": 2600, "y": 350 },
-                { "type": "cube", "x": 2700, "y": groundY - 50 },
-                { "type": "sawblade", "x": 2800, "y": 250 },
-                { "type": "sawblade", "x": 2800, "y": 300 },
-                { "type": "sawblade", "x": 2800, "y": 350 },
-                { "type": "cube", "x": 2900, "y": groundY - 50 },
-                { "type": "coin", "x": 2900, "y": groundY - 50 },
-                { "type": "sawblade", "x": 3000, "y": 250 },
-                { "type": "sawblade", "x": 3000, "y": 300 },
-                { "type": "sawblade", "x": 3000, "y": 350 },
-                { "type": "cube", "x": 2500, "y": groundY - 50 },
-                { "type": "sawblade", "x": 3200, "y": 250 },
-                { "type": "sawblade", "x": 3200, "y": 300 },
-                { "type": "sawblade", "x": 3200, "y": 350 },
-                { "type": "cube", "x": 2700, "y": groundY - 50 },
-                { "type": "sawblade", "x": 3400, "y": 250 },
-                { "type": "sawblade", "x": 3400, "y": 300 },
-                { "type": "sawblade", "x": 3400, "y": 350 },
-                { "type": "cube", "x": 2900, "y": groundY - 50 },
-                { "type": "sawblade", "x": 3600, "y": 250 },
-                { "type": "sawblade", "x": 3600, "y": 300 },
-                { "type": "sawblade", "x": 3600, "y": 350 },
-                { "type": "cube", "x": 3100, "y": groundY - 50 },
-                { "type": "coin", "x": 3100, "y": groundY - 50 },
-                { "type": "sawblade", "x": 3800, "y": 250 },
-                { "type": "sawblade", "x": 3800, "y": 300 },
-                { "type": "sawblade", "x": 3800, "y": 350 },
-                { "type": "cube", "x": 3300, "y": groundY - 50 },
-                { "type": "sawblade", "x": 4000, "y": 250 },
-                { "type": "sawblade", "x": 4000, "y": 300 },
-                { "type": "sawblade", "x": 4000, "y": 350 },
-                { "type": "cube", "x": 3500, "y": groundY - 50 },
-                { "type": "sawblade", "x": 4200, "y": 250 },
-                { "type": "sawblade", "x": 4200, "y": 300 },
-                { "type": "sawblade", "x": 4200, "y": 350 },
-                { "type": "cube", "x": 3700, "y": groundY - 50 },
-                { "type": "sawblade", "x": 4400, "y": 250 },
-                { "type": "sawblade", "x": 4400, "y": 300 },
-                { "type": "sawblade", "x": 4400, "y": 350 },
-                { "type": "cube", "x": 3900, "y": groundY - 50 },
+                { "type": "coin", "x": 600, "y": groundY - 50, "score": 1000 },
             ]
         };
         for (var object = 0; object < levelData.gameItems.length; object++) {
             var eachElement = levelData["gameItems"][object];
                 if (eachElement["type"] === "sawblade") {
                     createSawBlade(eachElement["x"], eachElement["y"]);
+                }
+                if (eachElement["type"] === "laser") {
+                    createLaser(eachElement["x"], eachElement["y"]);
+                }
+                if (eachElement["type"] === "cube") {
+                    createCubeEnemy(eachElement["x"], eachElement["y"]);
+                }
+                if (eachElement["type"] === "coin") {
+                    createReward(eachElement["x"], eachElement["y"], eachElement["score"]);
                 }
         }
         window.levelData = levelData;
@@ -138,11 +73,6 @@ var level01 = function (window) {
             obstacleImage.y = -25;
             sawBladeHitZone.addChild(obstacleImage);
         }
-        // for (var x = 0; x < 4000; x += 200) {
-        //     createSawBlade(400 + x, 250);
-        //     createSawBlade(400 + x, 300);
-        //     createSawBlade(400 + x, 350);
-        // }
         function createLaser(x, y) {
             var hitZoneSize = 5;
             if (oneShotMode === false) {
@@ -157,7 +87,6 @@ var level01 = function (window) {
             var obstacleImage = draw.rect(100, 20, "red", "rgb(255, 105, 105)", 3);
             laserHitZone.addChild(obstacleImage);
         }
-        // createLaser(300, 300);
         function createCubeEnemy(x, y) {
             var enemy = game.createGameItem("enemy", 25);
             var redSquare = draw.rect(50, 50, "red", "black");
@@ -184,9 +113,6 @@ var level01 = function (window) {
                 game.changeIntegrity(10)
             }
         }
-        // for (var x = 0; x < 4000; x += 200) {
-        //     createCubeEnemy(500 + x, groundY - 50);
-        // }
         function createReward(x, y, score) {
             var coin = game.createGameItem("coin", 25);
             var yellowCircle = draw.circle(12.5, "yellow", "orange", 3);
@@ -201,9 +127,6 @@ var level01 = function (window) {
                 coin.shrink()
             };
         }
-        // for (var x = 0; x < 4000; x += 800) {
-        //     createReward(500 + x, groundY - 50, 500);
-        // }
         // DO NOT EDIT CODE BELOW HERE
     }
 };

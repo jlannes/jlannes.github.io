@@ -29,7 +29,7 @@
         var hud, background, score, of, txtScore, integrity, integrityMeter;
 
         score = 0;
-        of = 0;
+        of = 1100;
 
         hud = new createjs.Container();
 
