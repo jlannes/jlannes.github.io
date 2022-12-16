@@ -16,7 +16,6 @@ var level01 = function (window) {
             "number": 1,
             "speed": -3,
             "gameItems": [
-                { "type": "laser", "x": 2000, "y": 235 },
                 { "type": "sawblade", "x": 400, "y": 254 },
                 { "type": "sawblade", "x": 400, "y": 119 },
                 { "type": "sawblade", "x": 600, "y": 202 },
@@ -32,6 +31,7 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 1700, "y": 250 },
                 { "type": "cube", "x": 1900, "y": groundY - 50 },
                 { "type": "coin", "x": 600, "y": groundY - 50, "score": 1000 },
+                { "type": "laser", "x": 2000, "y": 235 },
             ]
         };
         for (var object = 0; object < levelData.gameItems.length; object++) {
