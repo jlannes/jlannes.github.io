@@ -10,7 +10,32 @@ body {
   background-color: black;
 }
 
-#score, #highScore {
+#totalScore {
+  color: white;
+  position: relative;
+  top: -510px;
+  left: 475px;
+}
+
+#score {
+  color: white;
+}
+
+.upgrade {
+  color: white; 
+  position: relative;
+  top: -550px;
+  left: 475px;
+}
+.upgrades {
+  color: white; 
+  background-color: black;
+  position: relative;
+  top: -550px;
+  left: 475px;
+}
+
+#highScore {
   color: white;
 }
 

@@ -5,7 +5,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // HTML jQuery Objects
+var mainMenu = $('#mainMenu')
 var board = $("#board");
+var totalScoreElement = $("#totalScore");
 var scoreElement = $("#score");
 var highScoreElement = $("#highScore");
 
@@ -18,15 +20,17 @@ var apple = {
 
 }
 var score = 0;
+var totalScore = 0;
 // Constant Variables
 var ROWS = 20;
 var COLUMNS = 20;
 var SQUARE_SIZE = 20;
 var KEY = {
-  LEFT: 37,
-  UP: 38,
-  RIGHT: 39,
-  DOWN: 40,
+  ESC: 27,
+  LEFT: 65,
+  UP: 87,
+  RIGHT: 68,
+  DOWN: 83,
 };
 
 // interval variable required for stopping the update function when the game ends
@@ -194,6 +198,8 @@ function hasCollidedWithApple() {
 function handleAppleCollision() {
   // increase the score and update the score DOM element
   score++;
+  totalScore++;
+  totalScoreElement.text("Total Score: " + totalScore)
   scoreElement.text("Score: " + score);
 
   // Remove existing Apple and create a new one
