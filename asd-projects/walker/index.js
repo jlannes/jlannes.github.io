@@ -18,6 +18,7 @@ const KEYS = {
   "RIGHT": 39,
   "DOWN": 40,
   "ENTER": 13,
+  //added wasd for player 2
   "W": 87,
   "A": 65,
   "S": 83,
@@ -30,6 +31,7 @@ var walker1 = {
   ySpeed: 0,
   it: false
 }
+//added player 2
 var walker2 = {
   x: 1290,
   y: 700,
@@ -39,14 +41,14 @@ var walker2 = {
 }
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
-  $(document).on('keyup', handleKeyUp);
+  $(document).on('keydown', handleKeyDown);                           // handles the pressing of different keys
+  $(document).on('keyup', handleKeyUp);                               // handles the lifting of different keys
 
   //handles what happens when the players are clicked
   $("#walker1").on('click', handleWalker1Click);
   $("#walker2").on('click', handleWalker2Click);
 
-  //deciding who is "it"
+  //deciding who is "it" at the start of the game
   var randomNum = Math.random() * 2;
   if(randomNum > 1) {
     walker1.it = true
@@ -65,12 +67,14 @@ var walker2 = {
     repositionWalker();
     wallCollision();
     redrawWalker();
+    handlePlayerCollision();
     whoIsIt();
   }
   
   /* 
   Called in response to events.
   */
+  // decides what direction the players go
   function handleKeyDown(event) {
     if(event.which === KEYS.LEFT) {
       walker1.xSpeed = -5
@@ -97,7 +101,7 @@ var walker2 = {
       walker2.ySpeed = 5
     }
   }
-
+  //checks when the keys are lifted to see when to stop
   function handleKeyUp(event) {
     if(event.which === KEYS.LEFT) {
       walker1.xSpeed = 0
@@ -124,7 +128,11 @@ var walker2 = {
       walker2.ySpeed = 0
     }
   }
-
+   /*
+   These 2 handle click functions are just here for the points, it will only change color 
+   for 1 frame then change to the color they should be
+   */
+  //checks when the 1st walker is clicked
   function handleWalker1Click() {
     var randomColor = "#000000".replace(/0/g, function () {
       return (~~(Math.random() * 16)).toString(16);
@@ -133,41 +141,28 @@ var walker2 = {
     $("#walker1").css("background-color", randomColor);
   }
 
+  //checks when the 2nd walker is clicked
   function handleWalker2Click() {
     var randomColor = "#000000".replace(/0/g, function () {
       return (~~(Math.random() * 16)).toString(16);
     });
     $("#walker2").css("background-color", randomColor);
   }
+  
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  function handlePlayerCollision() {
-    if(walker1.x === walker2.x) {
-      if (walker1.it === true) {
-        walker1.it = false
-        walker2.it = true
-      }
-      if(walker2.it === true) {
-        walker1.it = true
-        walker2.it = false
-      }
-    }
-    
-  }
+  //changes the players values to show where to be next
+  function repositionWalker() {
+    walker1.x += walker1.xSpeed
+    walker1.y += walker1.ySpeed
+    walker2.x += walker2.xSpeed
+    walker2.y += walker2.ySpeed
+  }  
 
-  function whoIsIt() {
-    if(walker1.it === true) {
-      $("#walker1").css("background-color", "#FF0000")
-      $("#walker2").css("background-color", "#00FF00")
-    }
-    if(walker2.it === true) {
-      $("#walker2").css("background-color", "#FF0000")
-      $("#walker1").css("background-color", "#00FF00")
-    }
-  }
 
+  //stops the players from walking through walls
   function wallCollision() {
     if(walker1.x < 0) {
       walker1.x = 0
@@ -195,12 +190,7 @@ var walker2 = {
     }
   }
 
-  function repositionWalker() {
-    walker1.x += walker1.xSpeed
-    walker1.y += walker1.ySpeed
-    walker2.x += walker2.xSpeed
-    walker2.y += walker2.ySpeed
-  }  
+  //moves the players
   function redrawWalker() {
     $("#walker1").css("left", walker1.x);
     $("#walker1").css("top", walker1.y);
@@ -208,7 +198,33 @@ var walker2 = {
     $("#walker2").css("top", walker2.y);
   }
 
+  //trying to change who is it when they make contact
+  function handlePlayerCollision() {
+    if(walker1.x === walker2.x) {
+      if (walker1.it === true) {
+        walker1.it = false
+        walker2.it = true
+      }
+      if(walker2.it === true) {
+        walker1.it = true
+        walker2.it = false
+      }
+    }
+  }
 
+  //sets the player's colors respectively
+  function whoIsIt() {
+    if(walker1.it === true) {
+      $("#walker1").css("background-color", "#FF0000")
+      $("#walker2").css("background-color", "#00FF00")
+    }
+    if(walker2.it === true) {
+      $("#walker2").css("background-color", "#FF0000")
+      $("#walker1").css("background-color", "#00FF00")
+    }
+  }
+
+  //would end game if ever called(its not)
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
