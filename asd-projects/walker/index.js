@@ -40,8 +40,9 @@ var walker2 = {
   it: false
 }
   // one-time setup
+  var collided = false
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  var collisionInverval = setInterval(handlePlayerCollision, 1000/5)
+  //var collisionInverval = setInterval(handlePlayerCollision, 1000/5)
   $(document).on('keydown', handleKeyDown);                           // handles the pressing of different keys
   $(document).on('keyup', handleKeyUp);                               // handles the lifting of different keys
 
@@ -67,8 +68,8 @@ var walker2 = {
   function newFrame() {
     repositionWalker();
     wallCollision();
-    // handlePlayerCollision();
-    whoIsIt();
+    handlePlayerCollision();
+    setColors();
     redrawWalker();
   }
   
@@ -170,6 +171,19 @@ var walker2 = {
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+  //checks who is it, then swaps them
+  function changeIt() {
+    if(collided === true) {
+      if (walker1.it === true) {
+        walker1.it = false
+        walker2.it = true
+      } else {
+        walker1.it = true
+        walker2.it = false
+      }
+    }
+  }
+
   //changes the players values to show where to be next
   function repositionWalker() {
     walker1.x += walker1.xSpeed
@@ -215,21 +229,21 @@ var walker2 = {
     $("#walker2").css("top", walker2.y);
   }
 
-  //trying to change who is it when they make contact
+  function collisionTimeoutDelay() {
+    collided = false
+  }
+
+  //changes who is it when they make contact
   function handlePlayerCollision() {
     if(walker2.x <= walker1.x+50 && walker2.y <= walker1.y+50 && walker1.x <= walker2.x + 50 && walker1.y <= walker2.y + 50) {
-      if (walker1.it === true) {
-        walker1.it = false
-        walker2.it = true
-      } else if(walker2.it === true) {
-        walker1.it = true
-        walker2.it = false
-      }
+      collided = true
+      setTimeout(collisionTimeoutDelay, 1000)
+      changeIt()
     }
   }
 
   //sets the player's colors respectively
-  function whoIsIt() {
+  function setColors() {
     if(walker1.it === true) {
       $("#walker1").css("background-color", "#FF0000")
       $("#walker2").css("background-color", "#00FF00")
