@@ -33,14 +33,15 @@ var walker1 = {
 }
 //added player 2
 var walker2 = {
-  x: 1290,
-  y: 700,
+  x: 450,
+  y: 450,
   xSpeed: 0,
   ySpeed: 0,
   it: false
 }
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
+  var collisionInverval = setInterval(handlePlayerCollision, 1000/5)
   $(document).on('keydown', handleKeyDown);                           // handles the pressing of different keys
   $(document).on('keyup', handleKeyUp);                               // handles the lifting of different keys
 
@@ -66,9 +67,9 @@ var walker2 = {
   function newFrame() {
     repositionWalker();
     wallCollision();
-    redrawWalker();
-    handlePlayerCollision();
+    // handlePlayerCollision();
     whoIsIt();
+    redrawWalker();
   }
   
   /* 
@@ -104,28 +105,44 @@ var walker2 = {
   //checks when the keys are lifted to see when to stop
   function handleKeyUp(event) {
     if(event.which === KEYS.LEFT) {
-      walker1.xSpeed = 0
+      if(walker1.xSpeed !==5) {
+        walker1.xSpeed = 0
+      }
     }
     if(event.which === KEYS.UP) {
+      if(walker1.ySpeed !==5) {
       walker1.ySpeed = 0
+      }
     }
     if(event.which === KEYS.RIGHT) {
-      walker1.xSpeed = 0
+      if(walker1.xSpeed !==-5) {
+        walker1.xSpeed = 0
+      }
     }
     if(event.which === KEYS.DOWN) {
-      walker1.ySpeed = 0
+      if(walker1.ySpeed !==-5) {
+        walker1.ySpeed = 0
+      }
     }
     if(event.which === KEYS.A) {
-      walker2.xSpeed = 0
+      if(walker2.xSpeed !==5) {
+        walker2.xSpeed = 0
+      }
     }
     if(event.which === KEYS.W) {
-      walker2.ySpeed = 0
+      if(walker2.ySpeed !==5) {
+        walker2.ySpeed = 0
+      }
     }
     if(event.which === KEYS.D) {
-      walker2.xSpeed = 0
+      if(walker2.xSpeed !==-5) {
+        walker2.xSpeed = 0
+      }
     }
     if(event.which === KEYS.S) {
-      walker2.ySpeed = 0
+      if(walker2.ySpeed !==-5) {
+        walker2.ySpeed = 0
+      }
     }
   }
    /*
@@ -200,12 +217,11 @@ var walker2 = {
 
   //trying to change who is it when they make contact
   function handlePlayerCollision() {
-    if(walker1.x === walker2.x) {
+    if(walker2.x <= walker1.x+50 && walker2.y <= walker1.y+50 && walker1.x <= walker2.x + 50 && walker1.y <= walker2.y + 50) {
       if (walker1.it === true) {
         walker1.it = false
         walker2.it = true
-      }
-      if(walker2.it === true) {
+      } else if(walker2.it === true) {
         walker1.it = true
         walker2.it = false
       }
