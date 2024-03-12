@@ -41,6 +41,7 @@ var walker2 = {
 }
   // one-time setup
   var collided = false
+  var collisionPossible = true
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   //var collisionInverval = setInterval(handlePlayerCollision, 1000/5)
   $(document).on('keydown', handleKeyDown);                           // handles the pressing of different keys
@@ -173,14 +174,14 @@ var walker2 = {
 
   //checks who is it, then swaps them
   function changeIt() {
-    if(collided === true) {
-      if (walker1.it === true) {
-        walker1.it = false
-        walker2.it = true
-      } else {
-        walker1.it = true
-        walker2.it = false
-      }
+    if (walker1.it === true) {
+      walker1.it = false
+      walker2.it = true
+      collided = false
+    } else {
+      walker1.it = true
+      walker2.it = false
+      collided = false
     }
   }
 
@@ -230,15 +231,17 @@ var walker2 = {
   }
 
   function collisionTimeoutDelay() {
-    collided = false
+    collisionPossible = true
   }
 
   //changes who is it when they make contact
   function handlePlayerCollision() {
     if(walker2.x <= walker1.x+50 && walker2.y <= walker1.y+50 && walker1.x <= walker2.x + 50 && walker1.y <= walker2.y + 50) {
-      collided = true
-      setTimeout(collisionTimeoutDelay, 1000)
-      changeIt()
+      if(collisionPossible === true) {
+        changeIt()
+        collisionPossible = false;
+        setTimeout(collisionTimeoutDelay, 1000)
+      }
     }
   }
 
