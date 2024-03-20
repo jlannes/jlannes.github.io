@@ -21,7 +21,7 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 
-  applyFilterNoBackground(increaseGreenByBlue);
+  smudge();
 
   // do not change the below line of code
   render($("#display"), image);
@@ -77,3 +77,17 @@ function increaseGreenByBlue(array) {
   keepInBounds(array[GREEN] += array[BLUE])
 }
 // CHALLENGE code goes below here
+function smudge() {
+  for(var r = 0; r < image.length; r++) {
+    for(var c = 0; c < image[r].length; c++) {
+      var rgbString = image[r][c]
+      var rgbStringNext = image[r][c+1]
+      var rgbNumbers = rgbStringToArray(rgbString)
+      var rgbNumbersNext = rgbStringToArray(rgbStringNext)
+      keepInBounds(rgbNumbers[RED] += rgbNumbers[RED]/5)
+      rgbString = rgbArrayToString(rgbNumbers)
+      console.log(rgbString)
+      image[r][c] = rgbString
+    }
+  }
+}
