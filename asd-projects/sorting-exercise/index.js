@@ -14,7 +14,23 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-
+/*
+ITERATE over the array from i = 0 to i = length - 1
+ ITERATE over the array from j = length - 1 to j = i + 1
+   IF array[j]'s value < array[j - 1]'s value
+     swap array[j] and array[j - 1]
+*/
+async function bubbleSort(array) {
+    for(var i = 0; i < array.length-1; i++) {
+        for(var j = array.length - 1; j > i +1; j--){
+            if(array[j] >= array[j - 1]) {
+                swap(array, j, j - 1)
+                updateCounter(bubbleCounter);
+                await sleep(); 
+            }
+        }
+    }
+}
 
 // TODO 3: Implement quickSort
 
@@ -22,8 +38,11 @@ The CSS ids you will work with are:
 // TODOs 4 & 5: Implement partition
 
 
-// TODO 1: Implement swap
-
+// TODO 1: Implement swap                           // CHANGE THIS TO TEMP VAR
+function swap(array, i, j) {                        // CHANGE THIS TO TEMP VAR
+    [array[i], array[j]] = [array[j], array[i]];    // CHANGE THIS TO TEMP VAR
+    drawSwap(array, i, j)                           // CHANGE THIS TO TEMP VAR
+}                                                   // CHANGE THIS TO TEMP VAR
 
 ///////////////////////////////////////////////////////////////////////
 /////////////////////// YOUR WORK GOES ABOVE HERE /////////////////////

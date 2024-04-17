@@ -6,7 +6,7 @@ $(document).ready(function(){
     $("#goButton").on("click", function(){
         if (!STARTED){
             STARTED = true;
-
+            debugger;
             if (bubbleSort){
                 bubbleSort(bubbleList);
             }
