@@ -22,7 +22,9 @@ function resetAndRender() {
 //adds the fiter when the button is pressed
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
+  // applyFilter(reddify)
+  // applyFilterNoBackground(decreaseBlue)
+  // applyFilterNoBackground(increaseGreenByBlue)
   smudge()
 
   // do not change the below line of code
