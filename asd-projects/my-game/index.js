@@ -11,7 +11,6 @@ function updatePoints() {
     points += pointsPerSecond
     updatePointCounter(points)
     $("#pps").text("pps: " + pointsPerSecond)
-    pointsPerSecond += pointsPerSecond
 }
 
 function addPoints() {
