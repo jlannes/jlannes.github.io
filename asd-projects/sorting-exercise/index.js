@@ -21,9 +21,8 @@ ITERATE over the array from i = 0 to i = length - 1
      swap array[j] and array[j - 1]
 */
 async function bubbleSort(array) {
-  console.log("bubbleSort attempted to run")
-  for (var i = 0; i < array.length - 1; i++) {
-    for (var j = array.length - 1; j > i + 1; j--) {
+  for (var i = 0; i < array.length; i++) {
+    for (var j = array.length - 1; j >= i + 1; j--) {
       if (array[j].value <= array[j - 1].value) {
         swap(array, j, j - 1)
         updateCounter(bubbleCounter);
@@ -43,15 +42,14 @@ FUNCTION quickSort(array, left, right):
     IF index < right:
       quickSort(array, index, right)
 */
-async function quicksort(array, left, right) {
-  console.log("quicksort attempted to run")
-  if ((right - left) > 0) {
+async function quickSort(array, left, right) {
+  if (right - left > 0) {
     var index = await partition(array, left, right)
     if (left < index - 1) {
-      await quicksort(array, left, index - 1)
+      await quickSort(array, left, index - 1)
     }
     if (index < right) {
-      await quicksort(array, index, right)
+      await quickSort(array, index, right)
     }
   }
 }
@@ -69,30 +67,26 @@ FUNCTION partition (array, left, right):
   RETURN left + 1
 */
 async function partition(array, left, right) {
-  console.log("partition attempted to run")
   var pivot = array[Math.floor((right + left)/2)].value;
   while (left < right) {
-    while (array[left].value <= pivot) {
+    while (array[left].value < pivot) {
       left++
-    }
-    while (array[right].value >= pivot) {
+    };
+    while (array[right].value > pivot) {
       right--
-    }
+    };
     if (left < right) {
       swap(array, left, right)
-      updateCounter(quicksort)
+      updateCounter(quickCounter)
       await sleep()
     }
   }
-  return left + 1;
+  return (left + 1);
 }
 // TODO 1: Implement swap
 function swap(array, i, j) {
-  console.log("swap attempted to run")
-  var temp = array[i]
-  array[i] = array[j]
-  array[j] = temp
-  drawSwap(array, i, j)
+  [array[i], array[j]] = [array[j], array[i]]
+  drawSwap(array, i , j)
 }
 
 ///////////////////////////////////////////////////////////////////////
