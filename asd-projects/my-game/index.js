@@ -1,16 +1,20 @@
 //Initialization
 var points = 0
-var pointsPerSecond = 1
+var pps = 1
 $("#addPoint").on("click", addPoints)
 $("#upgrade1").on("click", upgrade1Click)
 
-setInterval(updatePoints, 1000)
+setInterval(updatePointCounter, 1000)
+setInterval(updatePointAmount, 1000/pps)
 
 //Main functions
 function updatePoints() {
-    points += pointsPerSecond
     updatePointCounter(points)
-    $("#pps").text("pps: " + pointsPerSecond)
+    $("#pps").text("pps: " + pps)
+}
+
+function updatePointAmount() {
+
 }
 
 function addPoints() {
@@ -19,9 +23,11 @@ function addPoints() {
 }
 
 function upgrade1Click() {
-    pointsPerSecond += 1
-    $("#pps").text("pps: " + pointsPerSecond)
+    pps += 1
+    $("#pps").text("pps: " + pps)
 }
+
+// Factory functions
 function updatePointCounter(points) {
     toString(points)
     console.log(points)
