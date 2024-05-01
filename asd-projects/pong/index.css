@@ -11,11 +11,42 @@ body {
   position: relative;
 }
 
-#gameItem {
-  background-color: teal;
-  width: 50px;
-  height: 50px;
+#ball {
+  background-color: rgb(255, 0,255);
+  width: 20px;
+  height: 20px;
   position: absolute;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+  left: 200px;
+  top: 200px;
+  border-radius: 10px;
+}
+
+#wallLeft {
+  background-color: rgb(0, 0, 255);
+  width: 20px;
+  height: 80px;
+  position: absolute;
+  left: 30px;
+}
+
+#wallRight {
+  background-color: rgb(255, 0, 0);
+  width: 20px;
+  height: 80px;
+  position: absolute;
+  left: 390px;
+}
+
+#p1scdiv {
+  background-color: rgb(0, 0, 255);
+  width: 75px;
+  position: relative;
+  left: 1000;
+}
+
+#p2scdiv {
+  background-color: rgb(255, 0, 0);
+  width: 75px;
+  position: relative;
+  left: 1000;
 }
