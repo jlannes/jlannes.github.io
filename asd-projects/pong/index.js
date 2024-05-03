@@ -110,6 +110,7 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+  //redraws all the objects so you can see them moving
   function redrawEverything() {
     $("#wallLeft").css("left", wallLeft.x);
     $("#wallLeft").css("top", wallLeft.y);
@@ -119,16 +120,19 @@ function runProgram(){
     $("#wallRight").css("top", wallRight.y);
   }
   
+  //moving the paddles
   function movePaddles() {
     wallLeft.y += wallLeft.yVelocity
     wallRight.y += wallRight.yVelocity
   }
 
+  //moving the paddles
   function moveBall() {
     ball.y += ball.yVelocity
     ball.x += ball.xVelocity
   }
 
+  //checks if anything collides with any other object
   function checkForCollisions() {
     if(ball.x<0) {
       ball.x = 0
@@ -165,6 +169,8 @@ function runProgram(){
       ball.xVelocity -= 1
     }
   }
+
+  //once the ball hits the left or right wall, it resets its position and speed
   function nextRound() {
     if(ball.x < wallLeft.x) {
       p2sc += 1
@@ -182,6 +188,7 @@ function runProgram(){
     }
   }
 
+  //checking if the speed is less than 1, then sets it to 1
   function velocityCheck(){
     if(ball.xVelocity < 1 && ball.xVelocity > -1) {
       ball.xVelocity = 1
@@ -191,6 +198,7 @@ function runProgram(){
     }
   }
 
+  //checks whether the game should end or not
   function endCheck() {
     if(p1sc > 10) {
       endGame(1)
@@ -200,6 +208,7 @@ function runProgram(){
     }
   }
 
+  //ends the game, saying who won
   function endGame(player) {
     $("<h1>PLAYER " + player + " WINS</h1>").appendTo("body")
     // stop the interval timer
