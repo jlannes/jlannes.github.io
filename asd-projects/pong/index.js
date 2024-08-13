@@ -134,14 +134,6 @@ function runProgram(){
 
   //checks if anything collides with any other object
   function checkForCollisions() {
-    if(ball.x<0) {
-      ball.x = 0
-      ball.xVelocity *= -1
-    }
-    if(ball.x>420) {
-      ball.x = 420
-      ball.xVelocity *= -1
-    }
     if(ball.y<0) {
       ball.yVelocity *= -1
     }
@@ -168,19 +160,22 @@ function runProgram(){
       ball.xVelocity *= -1
       ball.xVelocity -= 1
     }
+    if(ball.x < wallLeft.x) {
+      
+    }
   }
 
   //once the ball hits the left or right wall, it resets its position and speed
   function nextRound() {
-    if(ball.x < wallLeft.x) {
+    if(ball.x <= 0) {
       p2sc += 1
       $("#p2sc").text("P2: " + p2sc)
     }
-    if(ball.x > wallRight.x+20) {
+    if(ball.x >= wallRight.x+20) {
       p1sc += 1
       $("#p1sc").text("P1: " + p1sc)
     }
-    if(ball.x < wallLeft.x || ball.x > wallRight.x+20) {
+    if(ball.x <= 0 || ball.x > wallRight.x+20) {
       ball.x = 200
       ball.y = 200
       ball.xVelocity = Math.ceil(Math.random()*10 - 5)

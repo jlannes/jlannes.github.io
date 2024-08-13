@@ -9,10 +9,13 @@
     <title>My game</title>
   </head>
   <body>
-    <h1 id="points">points: 0</h1>
+    <div id="everything">
+    <h1 id="points">Points: 0</h1>
     <h3 id="pps">pps: 0</h3>
-    <button onclick="addPoints()">click for points(1+pps/2)</button>
-    <button onclick="upgrade1Click()" id="upgrade1">Add 1 to pps base(cost: 10)</button>
-    <button onclick="upgrade2Click()" id="upgrade2">Add 1 to pps mult(cost: 50)</button>
+    <button onclick="addPoints()" id="addPoints">click for points(1+sqrt(pps))</button>
+    <button onclick="buyable1Click()" id="buyable1">Add 1 to pps base(cost: 10)</button>
+    <button onclick="buyable2Click()" id="buyable2">Add 1 to pps mult(cost: 50)</button>
+    <button onclick="upgrade1Click()" id="upgrade1">Square your point gain(cost: 10,000)</button>
+    </div>
   </body>
 </html>
